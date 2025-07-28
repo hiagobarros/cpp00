@@ -14,11 +14,12 @@
 int main()
 {
     PhoneBook phonebook;
-    //std::cout<<phonebook.getContact(7).getname()<<std::endl;
 
     std::string fst_name;
     std::string lst_name;
+    std::string nickname;
     std::string number;
+    std::string darkest_secret;
     std::string cmd;
 	std::string wcm_msg =" /$$      /$$ /$$$$$$$$ /$$       /$$        /$$$$$$   /$$$$$$  /$$      /$$ /$$$$$$$$    \n\
 | $$  /$ | $$| $$_____/| $$      | $$       /$$__  $$ /$$__  $$| $$$    /$$$| $$_____/    \n\
@@ -53,19 +54,63 @@ int main()
                                                                                           \n\
                                                                     						";
     std::cout<<GRN + wcm_msg + RST<<std::endl;
-    while (1)
+    //std::string index;
+    while (!std::cin.eof())
     {
 		std::cout<<GRN"type a COMAND: "<<RST;
-        std::cin>>cmd;
+        std::getline(std::cin, cmd);
         if (cmd == "ADD")
         {
-            if (std::cout<<"first name:" && std::cin>>fst_name \
-            && std::cout<<"last name:" && std::cin>>lst_name\
-            && std::cout<<"number:" && std::cin>>number)
-                phonebook.PhoneBook::addContact(Contact("", fst_name, lst_name, number));
+            try
+            {
+                std::cout<<"first name:";
+                std::getline(std::cin, fst_name);
+                if(fst_name.empty())
+                    throw std::runtime_error(RED"INVALID FIST NAME!");
+                std::cout<<"last name:";
+                std::getline(std::cin, lst_name);
+                if(lst_name.empty())
+                    throw std::runtime_error(RED"INVALID LAST NAME!");
+                std::cout<<"nickname:";
+                std::getline(std::cin, nickname);
+                if(nickname.empty())
+                    throw std::runtime_error(RED"INVALID NICKNAME!");
+                std::cout<<"number:";
+                std::getline(std::cin, number);
+                if(number.empty())
+                    throw std::runtime_error(RED"INVALID NUMBER!");
+                std::cout<<"darkest secret:";
+                std::getline(std::cin, darkest_secret);
+                if(darkest_secret.empty())
+                    throw std::runtime_error(RED"INVALID DARKEST SECRET!");
+                phonebook.PhoneBook::addContact(Contact("", fst_name, lst_name, nickname, number, darkest_secret));
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what()<<RST<<std::endl;
+            }
+            
+
         }
         else if (cmd == "SEARCH")
+        {
             phonebook.PhoneBook::searchContact();
+            std::cout<<"type index:";
+            std::getline(std::cin, cmd);
+            if(cmd.length() == 1)
+            {
+                std::istringstream res_index(cmd);
+                int num;
+                res_index >> num;
+                if(num > 0 && num <= 8)
+                    phonebook.PhoneBook::printFUllInfoByIndex(num);
+                else
+                    std::cout<<RED<<"INPUT INVALID!"<<RST<<std::endl;
+            }
+            else
+                std::cout<<RED<<"IMPUT INVALID!"<<RST<<std::endl;
+
+        }
         else if (cmd == "EXIT")
             std::exit(0);
         else

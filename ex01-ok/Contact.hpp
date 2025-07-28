@@ -6,7 +6,7 @@
 /*   By: hde-barr <hde-barr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:43:08 by hde-barr          #+#    #+#             */
-/*   Updated: 2025/07/27 21:14:24 by hde-barr         ###   ########.fr       */
+/*   Updated: 2025/07/28 19:41:17 by hde-barr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ class Contact
         std::string _index;
         std::string _fst_name;
         std::string _lst_name;
+        std::string _nickname;
         std::string _number;
+        std::string _darkest_secret;
     public:
-        Contact(std::string index = "", std::string fst_name = "", std::string lst_name = "", std::string number = "");
+        Contact(std::string index = "", std::string fst_name = "", std::string lst_name = "", std::string nickname = "", std::string number = "", std::string darkest_secret = "");
 
         std::string to_string_int(int value);
         std::string getvalue(e_opt opt);

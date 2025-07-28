@@ -6,7 +6,7 @@
 /*   By: hde-barr <hde-barr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:54:23 by hde-barr          #+#    #+#             */
-/*   Updated: 2025/07/27 21:31:04 by hde-barr         ###   ########.fr       */
+/*   Updated: 2025/07/28 19:34:43 by hde-barr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class PhoneBook
     std::string to_string_int(int value);
 
     void addContact(Contact newContact);
+
+    void printFUllInfoByIndex(int index);
 
 	void printLineInfo(int i, e_opt opt);
 

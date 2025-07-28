@@ -6,7 +6,7 @@
 /*   By: hde-barr <hde-barr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:57:31 by hde-barr          #+#    #+#             */
-/*   Updated: 2025/07/27 21:32:46 by hde-barr         ###   ########.fr       */
+/*   Updated: 2025/07/28 19:40:43 by hde-barr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 
 
-    Contact::Contact(std::string index, std::string fst_name, std::string lst_name, std::string number )
+    Contact::Contact(std::string index, std::string fst_name, std::string lst_name, std::string nickname, std::string number, std::string darkest_secret )
         {
             _index = index;
             _fst_name = fst_name;
             _lst_name = lst_name;
+            _nickname = nickname;
 			_number = number;
+            _darkest_secret = darkest_secret;
         }
 
     std::string Contact::to_string_int(int value)
@@ -40,8 +42,12 @@
 				return (_fst_name);
 			case LASTNAME:
 				return (_lst_name);
+            case NICKNAME:
+                return (_nickname);
 			case NUMBER: 
 				return (_number);
+            case DARKEST_SECRET:
+                return (_darkest_secret);
 			default:
 				return (_fst_name);
         }

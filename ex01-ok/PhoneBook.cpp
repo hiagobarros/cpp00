@@ -6,7 +6,7 @@
 /*   By: hde-barr <hde-barr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:06:30 by hde-barr          #+#    #+#             */
-/*   Updated: 2025/07/27 21:48:01 by hde-barr         ###   ########.fr       */
+/*   Updated: 2025/07/28 21:53:20 by hde-barr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
         PhoneBook::PhoneBook()
         {
             for (int i = 0; i < _list.size(); i++)
-                _list[i] = Contact(to_string_int(i + 1), "", "");
+                _list[i] = Contact(to_string_int(i + 1), "", "", "", "", "");
         }
 
     Contact PhoneBook::getContact(int index)
@@ -40,9 +40,6 @@
         newContact.setIndex(n);
         _list[n] = newContact;
         std::cout<<"added new contact!"<<std::endl;
-        std::cout<<"name: " + newContact.getvalue(FULLNAME)<<std::endl;
-        std::cout<<_list[0].getvalue(FULLNAME)<<std::endl;
-        std::cout<<_list.begin()->getIndex()<<std::endl;
         n++;
     }
 
@@ -72,6 +69,34 @@
 	}
 	}
 
+    void PhoneBook::printFUllInfoByIndex(int index)
+    {
+        if(_list[index-1].getvalue(FIRSTNAME).length() > 0)
+            std::cout<<GRN<<"First name ⬅️ :"<<RST<<_list[index-1].getvalue(FIRSTNAME)<<std::endl;
+        else
+            std::cout<<GRN<<"First name ⬅️ :"<<RED<<" <Empty>"<<RST<<std::endl;
+            
+        if(_list[index-1].getvalue(LASTNAME).length() > 0)
+            std::cout<<BLU<<"Last name ➡️ :"<<RST<<_list[index-1].getvalue(LASTNAME)<<std::endl;
+        else
+            std::cout<<GRN<<"Last name ➡️ :"<<RED<<" <Empty>"<<RST<<std::endl;
+
+        if(_list[index-1].getvalue(NICKNAME).length() > 0)
+            std::cout<<YLW<<"Nickname 🥷:"<<RST<<_list[index-1].getvalue(NICKNAME)<<std::endl;
+        else
+            std::cout<<GRN<<"Nickname 🥷:"<<RED<<" <Empty>"<<RST<<std::endl;
+        
+        if(_list[index-1].getvalue(NUMBER).length() > 0)     
+            std::cout<<GRY<<"Phone number ☎️ :"<<RST<<_list[index-1].getvalue(NUMBER)<<std::endl;
+        else
+            std::cout<<GRN<<"Phone number ☎️ :"<<RED<<" <Empty>"<<RST<<std::endl;
+        
+        if(_list[index-1].getvalue(DARKEST_SECRET).length() > 0)     
+            std::cout<<RED<<"Darkest secret 😈:"<<RST<<_list[index-1].getvalue(DARKEST_SECRET)<<std::endl;
+        else
+            std::cout<<GRN<<"Darkest secret 😈:"<<RED<<" <Empty>"<<RST<<std::endl;    
+    }
+
     void PhoneBook::searchContact()
     {
 		std::cout<<" "<<YLW<<SNK"                                           "<<RST<<std::endl;
@@ -79,7 +104,7 @@
 		"|"<<SNK<<"     INDEX|"\
 				 <<"FISRT NAME"\
 		 <<YLW"|"<<" LAST NAME"\
-		 	  "|"<<"    NUMBER"
+		 	  "|"<<"  NICKNAME"
 		<<RST<<"|"<<std::endl;
         for(int i = 0; i < _list.size(); i++)
         {
@@ -92,7 +117,7 @@
                 std::cout<<"|";
 				printLineInfo(i, LASTNAME);
                 std::cout<<"|";
-				printLineInfo(i, NUMBER);
+				printLineInfo(i, NICKNAME);
 				std::cout<<"|"<<std::endl;
             }
             else

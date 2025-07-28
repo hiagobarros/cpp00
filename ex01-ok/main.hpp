@@ -6,7 +6,7 @@
 /*   By: hde-barr <hde-barr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 19:45:25 by hde-barr          #+#    #+#             */
-/*   Updated: 2025/07/27 20:13:19 by hde-barr         ###   ########.fr       */
+/*   Updated: 2025/07/28 20:42:54 by hde-barr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ enum e_opt{
     FULLNAME,
     FIRSTNAME,
     LASTNAME,
-	NUMBER
+    NICKNAME,
+	NUMBER,
+    DARKEST_SECRET
 };
 
 #include <iostream>
@@ -34,6 +36,8 @@ enum e_opt{
 #define GRN "\033[32m"
 #define RST "\033[0m"
 #define SNK "\033[4m"
+#define GRY "\033[2m"
+#define BLU "\033[34m"
 
 
 
