@@ -32,9 +32,9 @@ public:
 	Account( int initial_deposit );
 	~Account( void );
 
-	void	makeDeposit( int deposit );
-	bool	makeWithdrawal( int withdrawal );
-	int		checkAmount( void ) const;
+	void	makeDeposit( int deposit );//ok
+	bool	makeWithdrawal( int withdrawal );//ok
+	int		checkAmount( void ) const;//ok
 	void	displayStatus( void ) const;
 
 
