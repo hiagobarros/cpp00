@@ -1,18 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ArrayContact.cpp                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hde-barr <hde-barr@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 21:04:39 by hde-barr          #+#    #+#             */
-/*   Updated: 2025/07/27 21:35:04 by hde-barr         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "main.hpp"
         const int ArrayContact::n = 8;
         Contact ArrayContact::_arr[8];
+
+        ArrayContact::ArrayContact(){}
+        ArrayContact::~ArrayContact(){}
 
         Contact& ArrayContact::operator[](int index)
         {

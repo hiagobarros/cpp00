@@ -1,14 +1,7 @@
 
+
+
 #include "main.hpp"
-
-
-
-
-
-
-
-
-
 
 
 int main()
@@ -21,7 +14,7 @@ int main()
     std::string number;
     std::string darkest_secret;
     std::string cmd;
-	std::string wcm_msg =" /$$      /$$ /$$$$$$$$ /$$       /$$        /$$$$$$   /$$$$$$  /$$      /$$ /$$$$$$$$    \n\
+    std::cout<<GRN << " /$$      /$$ /$$$$$$$$ /$$       /$$        /$$$$$$   /$$$$$$  /$$      /$$ /$$$$$$$$    \n\
 | $$  /$ | $$| $$_____/| $$      | $$       /$$__  $$ /$$__  $$| $$$    /$$$| $$_____/    \n\
 | $$ /$$$| $$| $$      | $$      | $$      | $$  \\__/| $$  \\ $$| $$$$  /$$$$| $$          \n\
 | $$/$$ $$ $$| $$$$$   | $$      | $$      | $$      | $$  | $$| $$ $$/$$ $$| $$$$$       \n\
@@ -52,9 +45,8 @@ int main()
 | $$      | $$  | $$|  $$$$$$/| $$ \\  $$| $$$$$$$$| $$$$$$$/|  $$$$$$/|  $$$$$$/| $$ \\  $$\n\
 |__/      |__/  |__/ \\______/ |__/  \\__/|________/|_______/  \\______/  \\______/ |__/  \\__/\n\
                                                                                           \n\
-                                                                    						";
-    std::cout<<GRN + wcm_msg + RST<<std::endl;
-    //std::string index;
+                                                                    						" << RST<<std::endl;
+                                                                                            
     while (!std::cin.eof())
     {
 		std::cout<<GRN"type a COMAND: "<<RST;
@@ -77,7 +69,7 @@ int main()
                     throw std::runtime_error(RED"INVALID NICKNAME!");
                 std::cout<<"number:";
                 std::getline(std::cin, number);
-                if(number.empty())
+                if(number.empty() || number.length() > 9 || !PhoneBook::number_validator(number))
                     throw std::runtime_error(RED"INVALID NUMBER!");
                 std::cout<<"darkest secret:";
                 std::getline(std::cin, darkest_secret);

@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hde-barr <hde-barr@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 19:54:23 by hde-barr          #+#    #+#             */
-/*   Updated: 2025/07/29 18:23:14 by hde-barr         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
@@ -37,6 +27,10 @@ class PhoneBook
     void printFUllInfoByIndex(int index);
 
 	void printLineInfo(int i, e_opt opt);
+
+    static bool number_validator(std::string num);
+
+    static bool inter(char num);
 
     void searchContact();
 

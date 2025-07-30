@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hde-barr <hde-barr@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 21:06:30 by hde-barr          #+#    #+#             */
-/*   Updated: 2025/07/29 18:24:12 by hde-barr         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 #include "main.hpp"
 
@@ -128,4 +118,30 @@
                 std::cout<<"|"<<RED<<SNK"   <Empty>"<<RST<<"|"<<std::endl;
 			}
         }
+    }
+
+    bool PhoneBook::inter(char num)
+    {
+        bool res = false;
+        std::string nums = "0123456789";
+        
+        for(size_t i = 0; i < nums.length(); i++)
+        {
+            if(num == nums.at(i))
+                res = true;
+        }
+        return(res);
+    }
+    
+    bool PhoneBook::number_validator(std::string num)
+    {
+        for(size_t i = 0; i < num.length(); i++)
+        {
+            if(!inter(num.at(i)))
+            {
+                return (false);
+            }
+                //std::cout<<num.at(i)<<std::endl;
+        }
+        return(true);
     }
